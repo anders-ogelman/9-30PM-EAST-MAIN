@@ -1,0 +1,190 @@
+
+--live sample chopping (put the key of samples in them)
+
+--possible name: With time to collect my thoughts
+
+setcps(140/4/60)
+
+do
+    hush
+    d4 $ (1.75 ~>) $ chop 8 $ loopAt 16 $ sound "fia" #room 0.2
+
+do
+    hush
+    let a = slow 2 $ linger 0.5 $ (|+begin 0.001) $ (2 ~>) $ slow 2 $ (|+ begin "[0 0 0.01 0]/4 0") $ slice 32 "[9 12 8 4]/4 1" $ loopAt 32 $ sound "fia" #cut 1 #hpf 100 
+    let b = (0.125 ~>) $ slow 2 $ (|+ begin "[0 0 0.01 0]/4 0") $ slice 32 "[9 12 8 4]/4 1" $ loopAt 32 $ sound "fia" #cut 1 #hpf 100
+    d4  $ (|*gain 1.1) $ sew "[f t [f t] t]/4" a b #hpf 100 #room 0.14 #size 0.3 #hpf 20 -- a bit of reverb on the melody
+    d1  $ fast "2 2 2 1/2" $ struct "t(3,8)" $ every 2 (|+note sine) $ whenmod 3 2 rev $ chop 4 $ loopAt 1 $ sound "ploop" #gain 0.9 #orbit 1
+    d2  $ (2.125 ~>) $ slow 2 $ sound "b [~ b/2] s ~" #room 0.5 #size 0.8 #gain 1 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d12 $ (2.125 ~>) $ slow 2  $ sound "~ [h(3,8)] ~ [~ h*2 ~ h]" #room 0.5 #size 0.8 #gain 0.88 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d3  $ fast 2 $ (2.25 ~>) $ sound "h(3,8)" #att 0.05 #speed 2 #hpf 1000 #room 0.4 #size 0.5
+    --bassline idea
+    d5 $ superimpose ((|*speed 0.95).(#cut 7))
+        $ (1 <~) $ every 3 (#accelerate "0 0 0 [0 1/2 0]") $ chop "1 1 [1 2] 7" $ (|- note 0.6) $ sound "bass" #cut 8 #speed 1  #cutoff 100 #shape 0.2
+
+    --alternate, more chill bass
+    d5 $ every 3 (#accelerate "0 0 0 [0 1/2 0]") $ chop "1 1 [1 2] 7" $ (|- note 0.6) $ sound "bass" #cut 8 #speed "[1]"  #cutoff 100 #shape 0.2 #gain 1.1
+
+d2 silence
+
+--flute
+d7 $ stut 7 0.1 0.9 $ (#hpf 670) $ (|-note "[[8.5!3 6.5] 10.5]/3") $ stutWith 4 0.1 ((|*speed "1 1 -1").(|*gain 0.9)) $ note "ef" # sound "flute" #end 0.25 #room 0.6 #size 0.8 #gain 1.35 #speed "[0.5, 1]"
+
+
+hush
+
+--changeover drums
+do
+    d1 silence
+    d3 silence
+    d2  $ (2.125 ~>) $ slow 2 $ sound "b [~ b/2] s ~" #room 0.5 #size 0.8 #gain 1 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d12 $ (2.125 ~>) $ slow 2  $ sound "~ [h(3,8)] ~ [~ h*2 ~ h]" #room 0.5 #size 0.8 #gain 0.88 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+
+--reused but different intro part
+d4 $ stut 4 1 0.5 $ slice 32 "[0 4 8 14 16 20 24 30]/16" $ loopAt 16 $ sound "fia" #room 0.2 #speed 1.001 #hpf 100 #gain 1.15
+
+--variation on flute pattern
+d8 $ off 0.5 ((slow 1.75).(|+ note 12)) $ whenmod 2 1 rev $ (#hpf 400) $ (|-note "[[8.5!3 6.5] 10.5]/3") $ stutWith 4 0.1 ((|*speed "1 1 -1").(|*gain 0.9)) $ note "ef" # sound "flute" #end 0.25 #room 0.8 #size 0.9 #gain 1 #speed "[0.5, 1]"
+
+--alternate, more chill bass with some oomph  
+d5  $ superimpose ((#end 0.05).(#cut 12).(#crush 9).(#release 0.096).(#shape 0.9).(#gain 0.84).(#cutoff 10000))
+    $ every 3 (#accelerate "0 0 0 [0 1/2 0]") $ chop "1 1 [1 2] 7" $ (|- note 0.6) $ sound "bass" #cut 8 #speed "[1]"  #cutoff 100 #shape 0.2 #gain 1
+
+
+
+
+
+--ending drop
+
+do
+    hush
+    let a = slow 2 $ linger 0.5 $ (|+begin 0.001) $ (2 ~>) $ slow 2 $ (|+ begin "[0 0 0.01 0]/4 0") $ slice 32 "[9 12 8 4]/4 1" $ loopAt 32 $ sound "fia" #cut 1 #hpf 100 
+    let b = (0.125 ~>) $ slow 2 $ (|+ begin "[0 0 0.01 0]/4 0") $ slice 32 "[9 12 8 4]/4 1" $ loopAt 32 $ sound "fia" #cut 1 #hpf 100
+    d4  $ superimpose ((|*speed 2).(#cut 18).(|+end 0.1).(chop 12).(#hpf 1100))
+        $ (|*gain 1.1) $ sew "[f t [f t] t]/4" a b #hpf 100 #room 0.14 #size 0.3 #hpf 20 -- a bit of reverb on the melody
+    d1  $ fast "2 2 2 1/2" $ struct "t(3,8)" $ every 2 (|+note sine) $ whenmod 3 2 rev $ chop 4 $ loopAt 1 $ sound "ploop" #gain 0.9 #orbit 1
+    d2  $ (2.125 ~>) $ slow 2 $ sound "[b b] [~ b/2] s [~[b~~b]]" #room 0.5 #size 0.8 #gain 1.1 #crush 12 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d12 $ (2.125 ~>) $ slow 2  $ sound "~ [h(3,8)] ~ [~ h*2 ~ h]" #room 0.5 #size 0.8 #gain 0.88 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d3  $ (stut 2 0.9 0.0625) $ fast 2 $ (2.25 ~>) $ sound "h(3,8)" #att 0.05 #speed 2 #hpf 1000 #room 0.4 #size 0.5
+    --bassline idea
+    d5  $ superimpose ((|*speed 0.95).(#cut 7))
+        $ (1 <~) $ every 3 (#accelerate "0 0 0 [0 1/2 0]") $ chop "1 1 [1 2] 7" $ (|- note 0.6) $ sound "bass" #cut 8 #speed 1 #crush 7 #cutoff 100 #shape 0.2
+    d8 $ (|*speed "0.5") $ stutWith 7 0.3 ((|*speed (-1)).(|*gain 0.9)) $ (#hpf 600) $ (|+ note ("[1.5, [5.5 4.5]/4, 8.5]" + "[0 2]/4")) $ stutWith 4 0.1 ((|*speed "1 1 -1").(|*gain 0.9)) $ note "ef" # sound "flute" #end 0.25 #room 0.9 #size 0.8 #gain 1.1 #speed "[0.5, 1]"
+    d7 $ stut 7 0.1 0.9 $ (#hpf 670) $ (|-note "[[8.5!3 6.5] 10.5]/3") $ stutWith 4 0.1 ((|*speed "1 1 -1").(|*gain 0.9)) $ note "ef" # sound "flute" #end 0.25 #room 0.6 #size 0.8 #gain 1.65 #speed "[0.5, 1]"
+
+
+d5 silence
+
+
+
+
+
+
+
+
+
+--dj function
+
+let djfunc bars p = loopAt 1 $ chop (bars) $ p
+
+
+
+
+
+
+
+
+
+
+
+
+--live sample chopping (put the key of samples in them)
+
+--possible name: With time to collect my thoughts
+
+setcps(140/4/60)
+
+do
+    hush
+    d4 $ (1.75 ~>) $ chop 8 $ loopAt 16 $ sound "fia" #room 0.2
+
+do
+    hush
+    let a = slow 2 $ linger 0.5 $ (|+begin 0.001) $ (2 ~>) $ slow 2 $ (|+ begin "[0 0 0.01 0]/4 0") $ slice 32 "[9 12 8 4]/4 1" $ loopAt 32 $ sound "fia" #cut 1 #hpf 100 
+    let b = (0.125 ~>) $ slow 2 $ (|+ begin "[0 0 0.01 0]/4 0") $ slice 32 "[9 12 8 4]/4 1" $ loopAt 32 $ sound "fia" #cut 1 #hpf 100
+    d4  $ (|*gain 1.1) $ sew "[f t [f t] t]/4" a b #hpf 100 #room 0.14 #size 0.3 #hpf 20 -- a bit of reverb on the melody
+    d1  $ fast "2 2 2 1/2" $ struct "t(3,8)" $ every 2 (|+note sine) $ whenmod 3 2 rev $ chop 4 $ loopAt 1 $ sound "ploop" #gain 0.9 #orbit 1
+    d2  $ (2.125 ~>) $ slow 2 $ sound "b [~ b/2] s ~" #room 0.5 #size 0.8 #gain 1 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d12 $ (2.125 ~>) $ slow 2  $ sound "~ [h(3,8)] ~ [~ h*2 ~ h]" #room 0.5 #size 0.8 #gain 0.88 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d3  $ fast 2 $ (2.25 ~>) $ sound "h(3,8)" #att 0.05 #speed 2 #hpf 1000 #room 0.4 #size 0.5
+    --bassline idea
+    d5 $ superimpose ((|*speed 0.95).(#cut 7))
+        $ (1 <~) $ every 3 (#accelerate "0 0 0 [0 1/2 0]") $ chop "1 1 [1 2] 7" $ (|- note 0.6) $ sound "bass" #cut 8 #speed 1  #cutoff 100 #shape 0.2
+
+    --alternate, more chill bass
+    d5 $ every 3 (#accelerate "0 0 0 [0 1/2 0]") $ chop "1 1 [1 2] 7" $ (|- note 0.6) $ sound "bass" #cut 8 #speed "[1]"  #cutoff 100 #shape 0.2 #gain 1.1
+
+
+d2 silence
+
+--flute
+d7 $ stut 7 0.1 0.9 $ (#hpf 670) $ (|-note "[[8.5!3 6.5] 10.5]/3") $ stutWith 4 0.1 ((|*speed "1 1 -1").(|*gain 0.9)) $ note "ef" # sound "flute" #end 0.25 #room 0.6 #size 0.8 #gain 1.35 #speed "[0.5, 1]"
+
+
+hush
+
+--changeover drums
+do
+    d1 silence
+    d3 silence
+    d2  $ (2.125 ~>) $ slow 2 $ sound "b [~ b/2] s ~" #room 0.5 #size 0.8 #gain 1 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d12 $ (2.125 ~>) $ slow 2  $ sound "~ [h(3,8)] ~ [~ h*2 ~ h]" #room 0.5 #size 0.8 #gain 0.88 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+
+--reused but different intro part
+d4 $ stut 4 1 0.5 $ slice 32 "[0 4 8 14 16 20 24 30]/16" $ loopAt 16 $ sound "fia" #room 0.2 #speed 1.001 #hpf 100 #gain 1.15
+
+--variation on flute pattern
+d8 $ off 0.5 ((slow 1.75).(|+ note 12)) $ whenmod 2 1 rev $ (#hpf 400) $ (|-note "[[8.5!3 6.5] 10.5]/3") $ stutWith 4 0.1 ((|*speed "1 1 -1").(|*gain 0.9)) $ note "ef" # sound "flute" #end 0.25 #room 0.8 #size 0.9 #gain 1 #speed "[0.5, 1]"
+
+--alternate, more chill bass with some oomph  
+d5  $ superimpose ((#end 0.05).(#cut 12).(#crush 9).(#release 0.096).(#shape 0.9).(#gain 0.84).(#cutoff 10000))
+    $ every 3 (#accelerate "0 0 0 [0 1/2 0]") $ chop "1 1 [1 2] 7" $ (|- note 0.6) $ sound "bass" #cut 8 #speed "[1]"  #cutoff 100 #shape 0.2 #gain 1
+
+
+
+
+
+--ending drop
+
+do
+    hush
+    let a = slow 2 $ linger 0.5 $ (|+begin 0.001) $ (2 ~>) $ slow 2 $ (|+ begin "[0 0 0.01 0]/4 0") $ slice 32 "[9 12 8 4]/4 1" $ loopAt 32 $ sound "fia" #cut 1 #hpf 100 
+    let b = (0.125 ~>) $ slow 2 $ (|+ begin "[0 0 0.01 0]/4 0") $ slice 32 "[9 12 8 4]/4 1" $ loopAt 32 $ sound "fia" #cut 1 #hpf 100
+    d4  $ superimpose ((|*speed 2).(#cut 18).(|+end 0.1).(|*gain 0.8).(chop 12).(#hpf 900))
+        $ (|*gain 1.1) $ sew "[f t [f t] t]/4" a b #hpf 100 #room 0.14 #size 0.3 #hpf 20 -- a bit of reverb on the melody
+    d1  $ fast "2 2 2 1/2" $ struct "t(3,8)" $ every 2 (|+note sine) $ whenmod 3 2 rev $ chop 4 $ loopAt 1 $ sound "ploop" #gain 0.9 #orbit 1
+    d2  $ (2.125 ~>) $ slow 2 $ sound "[b b] [~ b/2] s [~[b~~b]]" #room 0.5 #size 0.8 #gain 1.1 #crush 12 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d12 $ (2.125 ~>) $ slow 2  $ sound "~ [h(3,8)] ~ [~ h*2 ~ h]" #room 0.5 #size 0.8 #gain 0.88 #crush 8 #delay 0.3 #delayfeedback 0.4 #delaytime 0.08 #orbit 1
+    d3  $ (stut 2 0.9 0.0625) $ fast 2 $ (2.25 ~>) $ sound "h(3,8)" #att 0.05 #speed 2 #hpf 1000 #room 0.4 #size 0.5
+    --bassline idea
+    d5  $ superimpose ((|*speed 0.95).(#cut 7))
+        $ (1 <~) $ every 3 (#accelerate "0 0 0 [0 1/2 0]") $ chop "1 1 [1 2] 7" $ (|- note 0.6) $ sound "bass" #cut 8 #speed 1 #crush 7 #cutoff 100 #shape 0.6
+    d8 $ (|*speed "0.5") $ stutWith 7 0.3 ((|*speed (-1)).(|*gain 0.9)) $ (#hpf 600) $ (|+ note ("[1.5, [5.5 4.5]/4, 8.5]" + "[0 2]/4")) $ stutWith 4 0.1 ((|*speed "1 1 -1").(|*gain 0.9)) $ note "ef" # sound "flute" #end 0.25 #room 0.9 #size 0.8 #gain 1.1 #speed "[0.5, 1]"
+    d7 $ stut 7 0.1 0.9 $ (#hpf 670) $ (|-note "[[8.5!3 6.5] 10.5]/3") $ stutWith 4 0.1 ((|*speed "1 1 -1").(|*gain 0.9)) $ note "ef" # sound "flute" #end 0.25 #room 0.6 #size 0.8 #gain 1.65 #speed "[0.5, 1]"
+
+
+d silence
+
+
+
+
+
+
+
+
+
+
+--dj function
+
+let djfunc bars p = loopAt 1 $ chop (bars) $ p
+

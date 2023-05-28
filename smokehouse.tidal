@@ -1,0 +1,261 @@
+setcps(98/4/60)
+
+do
+    hush
+    d1 $ superimpose((|*speed 0.76).(slow 2).(chop 4)) $ chop 8 $ loopAt 1  $ sound "ploop:1" #room 0.2 #size 0.8 #shape 0.5
+    
+    d10 $ sound "b:1*4"
+
+d3  $ (|+ note 12) $ chop 6 $ note "[1 0]/4" # sound "synths" #gain 1.4 #room 0.5 #size 0.8
+
+hush
+
+
+do 
+    d3  $ (|+ note 12) $ chop 6 $ note "[1 0, -2 [-2 -4]]/4" # sound "synths" #gain 1.4 #room 0.5 #size 0.8
+    d1 $ superimpose((|*speed 0.76).(slow 2).(chop 4)) $ chop 8 $ loopAt 1  $ sound "ploop:1" #room 0.2 #size 0.8 #shape 0.5
+    --attempt at generating odd harmonics
+    d4  $ (|- note "[0 0 5 6]/4")
+        $ layer [id, (|*speed 3).(|*gain 0.5), (|*speed 5).(|*gain 0.4), (|*speed 7).(|*gain 0.3)]
+        $ note "-0.5"  #sound "bass" #crush 10 #speed 1 #gain 1.12
+
+--doubled octave ver
+d3  $ (|+ note "[12,0]") $ chop 6 $ note "[1 0]/4" # sound "synths" #gain 1.5
+
+
+
+d2 $ chop 8 $ loopAt 4 $ sound "electricmagnetic" #shape 0.4 #room 0.6 #size 0.7 #lpf 2500
+
+do
+    d2 silence
+    d3 $ (|+ note 0) $ chop 8 $ note "[1 1 3 0]/4" # sound "synths" #gain 1.6 #room 0.18
+
+
+
+
+hush
+
+
+
+
+
+
+
+
+
+
+
+setcps(110/4/60)
+
+do
+    hush
+    d1 $ superimpose((|*speed 0.76).(slow 2).(chop 4)) $ chop 8 $ loopAt 1  $ sound "ploop:1" #room 0.2 #size 0.8 #shape 0.5
+    
+    d10 $ sound "b:1*4"
+
+d3  $ (|+ note 12) $ chop 6 $ note "[1 0]/4" # sound "synths" #gain 1.4 #room 0.5 #size 0.8
+
+hush
+
+d3  $ (|+ note 12) $ chop 6 $ note "[1 0, -2 [-2 -4]]/4" # sound "synths" #gain 1.4 #room 0.5 #size 0.8
+
+--doubled octave ver
+d3  $ (|+ note "[12,0]") $ chop 6 $ note "[1 0]/4" # sound "synths" #gain 1.5
+
+
+
+d2 $ chop 8 $ loopAt 4 $ sound "electricmagnetic" #shape 0.4 #room 0.6 #size 0.7 #lpf 2500
+
+do
+    d2 silence
+    d3 $ (|+ note 0) $ chop 8 $ note "[1 1 3 0]/4" # sound "synths" #gain 1.6
+
+
+--attempt at generating odd harmonics
+d4  $ (|- note "[0 0 5 6]/4")
+    $ layer [id, (|*speed 3).(|*gain 0.5), (|*speed 5).(|*gain 0.4), (|*speed 7).(|*gain 0.3)]
+    $ note "-0.5"  #sound "bass" #crush 10 #speed 4 #gain 1.12
+
+hush
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hush
+
+
+
+
+
+
+setcps(82/4/60)
+
+
+
+d1  $ slow 2
+    $ stutWith "[1 1 1 [5 2] 1]/2" (0.0625/2) ((|*speed 0.9).(|/crush 7))
+    $ sound "[bd sd:1 [~ bd ~ ~] sd:1, [~hh:1]*4]" #lpf 4000 #room 0.2 #size 0.9 #crush 64 #shape 0.8 #speed 0.5 #orbit 5
+
+
+d2  $ note "[-2 [-2]/4]" #sound "flute" #speed 1 #crush 4 #size 0.8 #room 0.2 #begin 0.1 #end 0.4 #gain 0.75
+
+d2  $ stut 6 0.84 "0.1 0.06" $ note "[-2 [-2]/4]" #sound "flute" #speed 1 #crush 4 #size 0.8 #room 0.2 #begin 0.1 #end 0.4 #gain 0.64
+
+d2  $ stut 6 0.84 "0.1 0.06" $ note "[-2 -4]/2 [[-2 -4]/2]/4" #sound "flute" #speed 1 #crush 5 #size 0.8 #room 0.2 #begin 0.1 #end 0.4 #gain 0.75
+
+
+d4  $ (|+note 0) $ slow 4 $ note "[-2, 1, 5] [-2, 1, 5] [-4, 0, 3, [~6/2]] [-4, 0, -9, [~5/2]]" # sound "bass" #end 0.8 #speed 4 #room 0.4 #gain 0.9
+
+d5  $ every 3 rev
+    -- $ off 0.125 (|*speed 2)
+    $ arpg $ (|+note 0) $ slow 4 $ note "[-2, 1, 5, 5] [-2, 1, 5, 5] [-4, 0, 3, 3, [~6/2]] [-4, 0, -9, -9, [~5/2]]" # sound "onthelow" #speed "1" #hpf 500 #room 0.2 #size 0.8 #gain 1
+
+
+do
+    d2 silence
+    d4  $ (|+note 0) $ slow 2 $ note "[1, 5, 8] [3, 6, 10, [~ 13/2]]" # sound "bass" #end 1 #speed 4 #room 0.4 #gain 0.9
+
+d5 silence
+
+
+d8 $ (|- note 2) $ slow 1 $ striate 16 $ sound "pianoloop" #cut 4
+
+
+do
+    d8 $ (|- note 2) $ slow 2 $ striate 16 $ sound "pianoloop" #cut 4
+    d2  $ stut 6 0.6 "0.1 0.06" $ note "[[-2 [-4 -2]/2] [-2 [-4 -7]/2]]" #attack 0.03 #sustain 2 #sound "buzzhit" #speed 8 #crush 3 #size 0.8 #room 0.2 #begin 0.1 #end 0.4 #gain 0.8
+    d6  $ (|+note 0) $ euclid 5 8 $ slow 2 $ note "[1] [3]" # sound "bass:1" #end 1 #speed 1 #lpf 700 #room 0.4 #gain 0.9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setcps(82/4/60)
+
+
+
+d1  $ slow 1
+    $ stutWith "[1 1 1 [5 2] 1]/2" (0.0625/2) ((|*speed 0.9).(|/crush 7))
+    $ sound "[bd sd:1 [~ bd ~ ~] sd:1, [~hh:1]*4]" #lpf 4000 #room 0.2 #size 0.9 #crush 64 #shape 0.8 #speed 0.5 #orbit 5
+
+
+d2  $ note "[-2 [-2]/4]" #sound "flute" #speed 1 #crush 4 #size 0.8 #room 0.2 #begin 0.1 #end 0.4 #gain 0.75
+
+d2  $ stut 6 0.84 "0.1 0.06" $ note "[-2 [-2]/4]" #sound "flute" #speed 1 #crush 4 #size 0.8 #room 0.2 #begin 0.1 #end 0.4 #gain 0.64
+
+d2  $ stut 6 0.84 "0.1 0.06" $ note "[-2 -4]/2 [[-2 -4]/2]/4" #sound "flute" #speed 1 #crush 5 #size 0.8 #room 0.2 #begin 0.1 #end 0.4 #gain 0.75
+
+
+d4  $ (|+note 0) $ slow 4 $ note "[-2, 1, 5] [-2, 1, 5] [-4, 0, 3, [~6/2]] [-4, 0, -9, [~5/2]]" # sound "bass" #end 0.8 #speed 4 #room 0.4 #gain 0.9
+
+d5  $ every 3 rev
+    $ off 0.125 (|*speed 2)
+    $ arpg $ (|+note 0) $ slow 4 $ note "[-2, 1, 5, 5] [-2, 1, 5, 5] [-4, 0, 3, 3, [~6/2]] [-4, 0, -9, -9, [~5/2]]" # sound "onthelow" #speed "1" #hpf 500 #room 0.2 #size 0.8 #gain 1
+
+
+
+do
+    d2 silence
+    d4  $ (|+note 0) $ slow 2 $ note "[1, 5, 8] [3, 6, 10, [~ 13/2]]" # sound "bass" #end 1 #speed 4 #room 0.4 #gain 0.9
+
+d5 silence
+
+
+d8 $ (|- note 2) $ slow 1 $ striate 16 $ sound "pianoloop" #cut 4 #hpf 500
+
+
+do
+    d8  $ superimpose ((|*speed 2).(#cut 8))
+        $ (|- note 2) $ slow 2 $ striate 16 $ sound "pianoloop" #cut 4
+    d2  $ stut 6 0.6 "0.1 0.06" $ note "[[-2 [-4 -2]/2] [-2 [-4 -7]/2]]" #attack 0.03 #sustain 2 #sound "buzzhit" #speed 8 #crush 3 #size 0.8 #room 0.2 #begin 0.1 #end 0.4 #gain 0.8
+    d6  $ (|+note 0) $ euclid 5 8 $ slow 2 $ note "[1] [3]" # sound "bass:1" #end 1 #speed 1 #lpf 700 #room 0.4 #gain 0.9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setcps(90/4/60)
+
+
+--running up that hill
+do
+    let hookMelody = slow 4 $ "~ ~ 6 [4 0] ~ ~ 6 [4 -1] ~ ~ 6 [4 0] ~ ~ [-1 0] 2" :: Pattern Int
+    d1  -- $ superimpose ((#sound "flute").(#speed 0.5).(#attack 0.5).(#release (1 + (slow 4 $ sine)*8)))
+        $ superimpose ((fast (1)).(|+end 0.2).(striate "8").((0.0625 + 0.03125) ~>).(#gain 0.8).(|*speed (1)).(|+| "0 ~ ~ ~"))
+        $ note (scale "minor" hookMelody) # sound "[buzzhit]" #room 0.2 #size 0.8 #end 0 #begin 0.5
+
+d1 $ note "~ ~ 10 [7 0]" # sound "buzzhit"
+
+
+d2 $ note "0 -2 -4 ~ ~ ~ ~ ~" #sound "vocalnote" #end 0.2
+
+d3 $ (|+note (-7)) $ slow 4 $ note "af'major7 bf'major c'minor c'minor'ii" #sound "vocalnote" #gain 1.4 #room 0.2 #size 0.4 #begin 0.05
+
+d1 $ sound "buzzhit"
+
+
+
+
+
+
+d2 $ (|+note (-7)) $ slow 4 $ note "af'major7 bf'major c'minor c'minor'ii" #hpf 100 #sound "flute" #legato 1 #speed 0.125 #gain 1.4 #room 0.2 #size 0.4
+
+
+
+
+
+

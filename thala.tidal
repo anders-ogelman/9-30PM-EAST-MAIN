@@ -1,0 +1,119 @@
+
+
+
+setcps(112/4/60)
+
+--YOU ARE AT SERIOUS RISK OF MAKING REVERIE MISTAKES HERE
+--MAKE SURE THAT YOU INTRODUCE *SIGNIFICANT* CHANGES AT A REGULAR INTERVAL, SUBTLE ADJUSTMENTS WILL STILL SOUND LIKE
+--YOURE JUST REPEATING THE SAME 
+--THING AGAIN AND AGAIN
+
+d2 $ (|*speed "[1 1 1 0.5]/8") $ trunc 0.5 $ (|- note 5.5) $ stutWith 5 0.06 ((|*gain 0.8).(|*pan(-1))) $ chop "32" $ sound "thalapathi/2" #n "1" #room 0.5 #size 0.84
+
+--build a bit here find ways to introduce subtle smokey robinsons earlier
+
+--an appreciation of beauty takes a bit of calming down
+
+d2 $ (|*gain 1.2) $ (|- note 5.5) $ every 4 ((|-note ("0 [5, 2/8]")).(|+ end 0.01)) $ stutWith 5 0.06 ((|*gain 0.8).(|*pan(-1))) $ chop "8 4 [6 [~7] 4] 2" $ sound "thalapathi" #n "[[0 1 1] 0]/2" #room 0.48 #size 0.85
+
+d2 $ (1 ~>) $ (|*gain 1.14) $ (|- note 5.5) $ stutWith 5 0.06 ((|*gain 0.8).(|*pan(-1))) $ chop "32" $ sound "thalapathi/2" #n "[[0 1 1] 0]/2" #room 0.48 #size 0.9
+
+
+
+hush
+
+
+d1  $ (|+ end 0.001) $ (|*speed (-1)) $ chop 8 $ slice 32 "[12 17 12 15]/2" $ sound "blowingsmoke/16" # hpf 79 #cut 8 #speed 0.75
+
+do
+    d2 silence
+    d4 $ sound "b*2" #shape 0.2 #gain 1.08 #room 0.2 #size 0.9
+
+d1  $ (|-note "[0 2]/8" ) $ (0.001 <~) $ (|+end 0.004) $ slice 32 "5" $ sound "blowingsmoke/16" # hpf 79 #cut 8 #speed 0.75
+
+d3 $ slow (1+((irand 250)/100000000)) $ (|*speed 0.7) $ sound "s:1*16" #shape 0.4 #room 0.2 #size 0.8 #gain 0.8 #lpf 4600 #crush 5
+
+
+
+
+--ending: increase the |+ end gradually and then cut to a simple sample
+d3 $ ((|+begin 0.006).(|+end 0)) $ slice 32 "8*7" $ sound "blowingsmoke"
+
+d2 $ (|*gain 1.1) $ (|- note 5.5) $ stutWith 5 0.06 ((|*gain 0.8).(|*pan(-1))) $ chop "8" $ sound "thalapathi" #n "[[0 1 1] 0]/2" #room 0.5 #size 0.9
+
+--very end
+do
+    hush
+    d1 $ slow 2 $ chop 8 $ (|-note 5.5) $ sound "thalapathi" #n "0" #room 0.5 #size 0.9
+
+d1 $ slow 2.9 $ chop 8 $ (|-note 5.5) $ sound "thalapathi" #n "1" #room 0.5 #size 0.9
+
+hush
+
+
+
+
+
+
+
+
+
+
+setcps(112/4/60)
+
+--YOU ARE AT SERIOUS RISK OF MAKING REVERIE MISTAKES HERE
+--MAKE SURE THAT YOU INTRODUCE *SIGNIFICANT* CHANGES AT A REGULAR INTERVAL, SUBTLE ADJUSTMENTS WILL STILL SOUND LIKE
+--YOURE JUST REPEATING THE SAME 
+--THING AGAIN AND AGAIN
+
+d2 $ (|*speed "[1 1 1 0.5]/8") $ trunc 0.5 $ (|- note 5.5) $ stutWith 5 0.06 ((|*gain 0.8).(|*pan(-1))) $ chop "32" $ sound "thalapathi/2" #n "1" #room 0.5 #size 0.84
+
+--build a bit here find ways to introduce subtle smokey robinsons earlier
+
+--an appreciation of beauty takes a bit of calming down
+
+do
+    d2 silence
+    d3 $ (|*gain 1.2) $ (|- note 5.5) $ every 4 ((|-note ("0 [5, 2/8]")).(|+ end 0.01)) $ stutWith 5 0.06 ((|*gain 0.8).(|*pan(-1))) $ chop "8 4 [6 [~7] 4] 2" $ sound "thalapathi" #n "[[0 1 1] 0]/2" #room 0.48 #size 0.85
+
+d3 $ (1 ~>) $ (|*gain 1.14) $ (|- note 5.5) $ stutWith 5 0.06 ((|*gain 0.8).(|*pan(-1))) $ chop "32" $ sound "thalapathi/2" #n "[[0 1 1] 0]/2" #room 0.48 #size 0.9
+
+
+
+hush
+
+
+d1  $ (|+ end 0.001) $ (|*speed (-1)) $ chop 8 $ slice 32 "[12 17 12 15]/2" $ sound "blowingsmoke/16" # hpf 60 #cut 8 #speed 0.75
+
+do
+    d3 silence
+    d4 $ sound "b*2" #shape 0.2 #gain 1.08 #room 0.2 #size 0.9
+
+d1  $ (|-note "[0 2]/8" ) $ (0.001 <~) $ (|+end 0.004) $ slice 32 "5" $ sound "blowingsmoke/16" # hpf 79 #cut 8 #speed 0.75
+
+d3 $ slow (1+((irand 250)/100000000)) $ (|*speed 0.7) $ sound "s:1*16" #shape 0.4 #room 0.2 #size 0.8 #gain 0.8 #lpf 4600 #crush 5
+
+
+
+
+--ending: increase the |+ end gradually and then cut to a simple sample
+d1 $ ((|+begin 0.006).(|+end 0.09)) $ slice 32 "8*7" $ sound "blowingsmoke" #room 0.4 #size 0.87
+
+d2 silence
+
+d3 silence
+
+--very end
+do
+    hush
+    d1 $ slow 2 $ chop 8 $ (|-note 5.5) $ sound "thalapathi" #n "0" #room 0.5 #size 0.9
+
+d1 $ slow 2.9 $ chop 8 $ (|-note 5.5) $ sound "thalapathi" #n "1" #room 0.5 #size 0.9
+
+hush
+
+
+
+
+
+

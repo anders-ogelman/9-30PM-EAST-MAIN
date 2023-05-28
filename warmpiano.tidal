@@ -1,0 +1,132 @@
+setcps(70/4/60)
+
+--TODO liven up the sounds of the piano by getting a folder of piano hits and picking a random one each time
+--the bells are probably fine tbh, might not need to do anything to those
+
+d2  $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b], ~[s:2~s:2/2]]" #shape (sine/2) #lpf 2000 #gain 1 #room 0.20 #size 0.7
+
+--bring in (slow 2).(+ "-12") only when the drums come in
+do
+    hush
+    let notePat = off 0.49 (+ "4 5 6") $ "0 [5 4]/3 3 [~[7 3]/2]" ::Pattern Int
+    d1  $ (|*gain 0.9)
+        -- $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        $ note (scale "major" notePat) #sound "piano" #n (irand 1) #begin (sine/1000) #room 0.5 #size 0.8 #speed 0.5 #lpf 3500
+    d2 $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b:2]]" #shape (sine/2) #gain 1 #room 0.12 #size 0.7 
+
+--bring in (slow 2).(+ "-12") only when the drums come in
+do
+    --hush
+    let notePat = off 0.49 (+ "4 5 6") $ "0 [5 4]/3 3 [~[7 3]/2]" ::Pattern Int
+    d1  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        $ note (scale "major" notePat) #sound "piano" #begin(sine/1000) #room 0.5 #size 0.8 #speed 0.5 #n (irand 1) #lpf 4000
+    d2  $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b], ~[s:2~s:2/2]]" #shape (sine/2) #gain 1 #room 0.12 #size 0.7
+
+d9 $ sound "b:1*2"
+
+--variation on the main melody
+do
+    hush
+    let notePat =   arpg $ off 0.5 (+ "7 1 [~5] ~") $ "0 4 5 7" ::Pattern Int
+    d8  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        -- $ superimpose ((|*speed 0.5).(#release 0.5))
+        $ note (scale "major" notePat) #begin (sine/100) #sound "piano" #n (irand 1) #room 0.5 #lpf 4000 #size 0.8 #speed 0.5
+    d2 $ sound "[b h:1]*4" #shape (sine/2) #gain 1 #room 0.12 #size 0.7 
+
+
+--bring in (slow 2).(+ "-12") only when the drums come in
+do
+    hush
+    let notePat = off 0.5 ((slow 2).(+ "-12")) $ off 0.49 (+ "4 5 6") $ "0 [5 4]/3 3 [~[7 3]/2]" ::Pattern Int
+    d1  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        $ note (scale "major" notePat) #begin (sine/1000) #sound "piano" #room 0.5 #size 0.8 #n (irand 1) #speed 0.5 #lpf 4000
+    d2 $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b], ~[s:2~s:2/2]]" #shape (sine/2) #gain 1 #room 0.12 #size 0.7
+
+
+do
+    hush
+    let notePat = off 0.5 ((slow 2).(+ "[-5 -12]")) $ off 0.49 (+ "4 [5, 0] [6]") $ "0 [5 4]/3 3 [~[7 3]/2]" ::Pattern Int
+    d1  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        $ note (scale "major" notePat) #begin(sine/1000) #sound "piano" #room 0.5 #size 0.8 #speed 0.5 #n (irand 1) #lpf 4000
+    d2 $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b:2], ~[s:2~s:2/2], [~[h, [~~h]/4]]*4]" #shape (sine/2) #gain 1 #room 0.12 #size 0.7
+
+d2 $ every 2 (|*speed "-1 1 1 [2 1 1]") $ chop 8 $ loopAt 1 $ sound "ploop" #room 0.8 #crush 7 #gain 1.6
+
+
+
+hush
+
+
+
+
+
+
+
+
+setcps(70/4/60)
+
+--TODO liven up the sounds of the piano by getting a folder of piano hits and picking a random one each time
+--the bells are probably fine tbh, might not need to do anything to those
+
+d2  $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b], ~[s:2~s:2/2]]" #shape (sine/2) #lpf 2000 #gain 1 #room 0.20 #size 0.7
+
+
+--bring in (slow 2).(+ "-12") only when the drums come in
+do
+    hush
+    let notePat = off 0.49 (+ "4 5 6") $ 
+                    "0 [5 4]/3 3 [~[7 3]/2]" ::Pattern Int
+    d1  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        $ note (scale "major" notePat) #sound "piano" #n (irand 1) #begin (sine/1000) #room 0.5 #size 0.8 #speed 0.5 #lpf 3500
+    d2 $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b:2]]" #shape (sine/2) #gain 1 #room 0.12 #size 0.7 
+
+--bring in (slow 2).(+ "-12") only when the drums come in
+do
+    hush
+    let notePat = off 0.49 (+ "4 5 6") $ "0 [5 4]/3 3 [~[7 3]/2]" ::Pattern Int
+    d1  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        $ note (scale "major" notePat) #sound "piano" #begin(sine/1000) #room 0.5 #size 0.8 #speed 0.5 #n (irand 1) #lpf 4000
+    d2  $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b], ~[s:2~s:2/2]]" #shape (sine/2) #gain 1 #room 0.12 #size 0.7
+
+d9 $ sound "b:1*2"
+
+--variation on the main melody
+do
+    hush
+    let notePat =   off 0.5 (+ "7 1 [~5] ~") $ "0 4 5 7" ::Pattern Int
+    d8  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        -- $ superimpose ((|*speed 0.5).(#release 0.5))
+        $ note (scale "major" notePat) #begin (sine/100) #sound "piano" #n (irand 1) #room 0.5 #lpf 4000 #size 0.8 #speed 0.5
+    
+    d2 $ sound "[b h:1]*4" #shape (sine/2) #gain 1 #room 0.12 #size 0.7 
+
+
+--bring in (slow 2).(+ "-12") only when the drums come in
+do
+    hush
+    let notePat = off 0.5 ((slow 2).(+ "-12")) $ off 0.49 (+ "4 5 6") $ "0 [5 4]/3 3 [~[7 3]/2]" ::Pattern Int
+    d1  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        $ note (scale "major" notePat) #begin (sine/1000) #sound "piano" #room 0.5 #size 0.8 #n (irand 1) #speed 0.5 #lpf 4000
+    d2 $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b], ~[s:2~s:2/2]]" #shape (sine/2) #gain 1 #room 0.12 #size 0.7
+
+
+do
+    hush
+    let notePat = off 0.5 ((slow 2).(+ "[-5 -12]")) $ off 0.49 (+ "4 [5, 0] [6]") $ "0 [5 4]/3 3 [~[7 3]/2]" ::Pattern Int
+    d1  $ (|*gain 0.9)
+        $ superimpose ((arpg).(#sound "superfork").(#gain 0.8).(slow 3).(#sustain 2))
+        $ note (scale "major" notePat) #begin(sine/1000) #sound "piano" #room 0.5 #size 0.8 #speed 0.5 #n (irand 1) #lpf 4000
+    d2 $ sound "[[b:2 ~ [b:2 ~ ~ ~ b:2/2] b:2], ~[s:2~s:2/2], [~[h, [~~h]/4]]*4]" #shape (sine/2) #gain 1 #room 0.12 #size 0.7
+
+d2 $ every 2 (|*speed "-1 1 1 [2 1 1]") $ chop 8 $ loopAt 1 $ sound "ploop" #room 0.8 #crush 7 #gain 1.6
+
+
+
