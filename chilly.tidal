@@ -1,0 +1,109 @@
+--dilla-esque
+
+
+setcps(90/4/60)
+
+hush
+
+--swap between this
+d4  $ (|* speed (1.059466 ** "-0.90752"))
+    $ (|*gain 1.5) $ chop 8 $ loopAt "2" $ sound "plumblossom:3" #room 0.2 #size 0.7
+
+--and this
+d4 $ (|*gain 1.5) $ chop 8 $ loopAt "2" $ sound "plumblossom:2" #room 0.2 #size 0.7
+
+
+--converting
+do
+    hush
+    d4 $ rev $ (|*gain 1.5) $ chop 8 $ loopAt "2" $ sound "plumblossom:2" #room 0.2 #size 0.7
+
+--fall in love chords
+
+
+--ambiance without overpowering
+d5  $ stutWith 5 0.1 ((|*gain ((sine+0.9)/2)).(|*speed(-1)))
+    $ whenmod 4 3 rev $ (|*speed (1.059466 ** "-0.90752")) $ chop 8 $ loopAt 4 $ sound "plumblossom" #gain 1.45 #room 0.2 #size 0.7
+
+
+d6  -- $ off 0.5 ((#hpf 1000).(#orbit 12).(#size 0.5).(#room 0.8).(|*gain 0.76).(#crush 10).(#lpf 4500).(|*speed 2))
+    $ (|*speed "[1.01, 1.013]") $ slow 2 $ note "d e [a a c5]/3 [~ [c5 [a4]]/2]" # sound "synths" #legato (1.1 + (fast 7 $ sine)) #lpf 2000 #gain 1.4 #room 0.2 #size 0.8 #vowel "u"
+
+
+ 
+
+do
+    d4 silence
+    d6  $ superimpose ((#hpf 1000).(#orbit 12).(#size 0.5).(#room 0.8).(|*gain 0.96).(#crush 9).(#lpf 5000).(|*speed 2))
+        $ every 5 (fast "2 1 1 1") $ every 3 rev $ (|*speed "[1.01, 1.013]") $ slow 2 $ note "d e [a a c5]/3 [~ [c5 a4]/2]" # sound "synths" #legato (1.1 + (fast 7 $ sine)) #gain 1.081 #lpf 2000 #room 0.2 #size 0.8 #vowel "u"
+
+do
+    --attempt at computerized dilla swing turned into light idm with swing and glitches with a dilla subtlety
+    --get dustier hihats, slightly dustier drums
+    d2  $ fast 2
+        $ (|*gain 1.06) $ stack [
+            every 8 (fast "2 1") $ sound "b ~" #shape 0.4 #n 3 #lpf 2000 #lpq 0,
+            every 8 (fast "2 1") $ sound "~ s" #speed 1 #gain 1.1 #n 3 #lpq 0 # hpf 50 #begin 0.09 #release 0.1,
+            ((0.025 + ((irand 8)/(128*4))) <~) $ sound "~h~h"
+                                ] #room 0.1 #size 0.2
+
+    d6  $ superimpose ((#hpf 1000).(#orbit 12).(#size 0.5).(#pan "[0.4 0.6]/3").(#room 0.8).(|*gain 0.85).(#crush 9).(#lpf 4500).(|*speed 2))
+        $ (|*speed "[1.01, 1.013]") $ slow 2 $ note "d e [a a c5]/3 [~ [c5 [a4]]/2]" # sound "synths" #legato (1.1 + (fast 7 $ sine)) #lpf 2000 #gain 1.23 #room 0.2 #size 0.8 #vowel "u"
+
+hush
+
+
+
+
+
+
+
+--dilla-esque
+
+
+setcps(90/4/60)
+
+hush
+
+--swap between this
+d4  $ (|*speed (1.059466 ** "-0.90752"))
+    $ (|*gain 1.5) $ chop 8 $ loopAt "2" $ sound "plumblossom:3" #room 0.2 #size 0.7
+
+--and this
+d4 $ (|*gain 1.5) $ chop 8 $ loopAt "2" $ sound "plumblossom:2" #room 0.2 #size 0.7
+
+
+--converting
+d4 $ rev $ (|*gain 1.5) $ chop 8 $ loopAt "2" $ sound "plumblossom:2" #room 0.2 #size 0.7
+
+--fall in love chords
+
+
+--ambiance without overpowering
+d5  $ stutWith 5 0.1 ((|*gain ((sine+0.9)/2)).(|*speed(-1)))
+    $ whenmod 4 3 rev $ (|*speed (1.059466 ** "-0.90752")) $ chop 8 $ loopAt 4 $ sound "plumblossom" #gain 1.4 #room 0.2 #size 0.7
+
+
+d6  $ superimpose((#hpf 1000).(#orbit 12).(#size 0.5).(#room 0.8).(|*gain 0.96).(#crush 9).(#lpf 5000).(|*speed 2))
+    $ (|*speed "[1.01, 1.013]") $ slow 2 $ note "d e [a a c5]/3 [~ [c5 [a4]]/2]" # sound "synths" #legato (1.1 + (fast 7 $ sine)) #lpf 2000 #gain 1.081 #room 0.2 #size 0.8 #vowel "u"
+
+
+
+
+do
+    d4 silence
+    d6  $ superimpose((#hpf 1000).(#orbit 12).(#size 0.5).(#room 0.8).(|*gain 0.96).(#crush 9).(#lpf 10000).(|*speed 2))
+        $ every 5 (fast "2 1 1 1") $ every 3 rev $ (|*speed "[1.01, 1.013]") $ slow 2 $ note "d e [a a c5]/3 [~ [c5 a4]/2]" # sound "synths" #legato (1.1 + (fast 7 $ sine)) #gain 1.2 #lpf 2000 #room 0.2 #size 0.8 #vowel "u"
+
+
+
+--attempt at computerized dilla swing turned into light idm with swing and glitches with a dilla subtlety
+--get dustier hihats, slightly dustier drums
+d2  $ fast 2
+    $ (|*gain 1) $ stack [
+        every 8 (fast "2 1") $ sound "b ~" #shape 0.4 #n 3 #lpf 2000 #lpq 0,
+        every 8 (fast "2 1") $ sound "~ s" #speed 1 #gain 1.1 #n 3 #lpq 0 # hpf 50 #begin 0.09 #release 0.1,
+        ((0.025 + ((irand 8)/(128*4))) <~) $ sound "~h~h"
+] #room 0.1 #size 0.2
+
+hush
